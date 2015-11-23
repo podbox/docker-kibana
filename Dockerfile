@@ -4,7 +4,7 @@ ENV KIBANA_VERSION 4.2.1
 RUN (curl https://download.elastic.co/kibana/kibana/kibana-$KIBANA_VERSION-linux-x64.tar.gz | gunzip -c | tar x) \
  && mv kibana-$KIBANA_VERSION-linux-x64 /kibana
 
-RUN sed -i 's/http:\/\/localhost:9200/http:\/\/elasticsearch:9200/' /kibana/config/kibana.yml
+RUN sed -i 's/# elasticsearch.url: "http:\/\/localhost:9200"/elasticsearch.url: "http:\/\/elasticsearch:9200"/' /kibana/config/kibana.yml
 
 RUN useradd -m kibana \
  && chown -R kibana:kibana /kibana
