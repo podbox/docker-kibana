@@ -6,5 +6,9 @@ RUN (curl https://download.elastic.co/kibana/kibana/kibana-$KIBANA_VERSION-linux
 
 RUN sed -i 's/http:\/\/localhost:9200/http:\/\/elasticsearch:9200/' /kibana/config/kibana.yml
 
+RUN useradd -m kibana \
+ && chown -R kibana:kibana /kibana
+
+USER kibana
 EXPOSE 5601
 CMD ["/kibana/bin/kibana"]
