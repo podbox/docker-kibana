@@ -1,6 +1,6 @@
 FROM podbox/debian
 
-ENV KIBANA_VERSION 4.2.1
+ENV KIBANA_VERSION 4.3.0
 RUN (curl https://download.elastic.co/kibana/kibana/kibana-$KIBANA_VERSION-linux-x64.tar.gz | gunzip -c | tar x) \
  && mv kibana-$KIBANA_VERSION-linux-x64 /kibana
 
